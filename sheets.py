@@ -25,6 +25,7 @@ def getSchedule():
     date_chores = {}
     for row in values:
         dateStr = row[0].split(", ")[1]
+        print('Key: {}'.format(dateStr))
         date_chores[dateStr] = row[1:len(row)]
 
     return date_chores
@@ -34,7 +35,8 @@ def getWeekChores(queryDate):
     queryDay = int(datetime.datetime.strftime(queryDate, '%w')) # 0 = sun, 1 = mon etc
     offsetDays = 6 if queryDay == 0 else queryDay - 1
     mondayDate = queryDate - datetime.timedelta(offsetDays)
-    keyStr = mondayDate.strftime('%d %B %Y')
+    keyStr = mondayDate.strftime('%-d %B %Y')
+    print('Looking for: {}'.format(keyStr))
     schedule = getSchedule()
     if keyStr in schedule:
         return schedule[keyStr]
