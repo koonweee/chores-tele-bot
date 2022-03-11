@@ -1,4 +1,3 @@
-from tkinter.tix import INTEGER
 import httplib2
 from apiclient import discovery
 import pytz
