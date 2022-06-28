@@ -15,7 +15,7 @@ service = discovery.build(
         http=httplib2.Http(),
         discoveryServiceUrl=discovery_url,
         developerKey=sheets_api_key)
-gc = pygsheets.authorize(service_file='/Users/jtkw/Desktop/tele-bot.json')
+gc = pygsheets.authorize(service_file='./tele-bot.json')
 sh = gc.open('Chores')
 wks = sh[0]
 
