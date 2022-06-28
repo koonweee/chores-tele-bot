@@ -47,7 +47,7 @@ def chores(update, context):
         arg = context.args[0]
         if arg == 'prev':
             today += datetime.timedelta(-7)
-        if arg == 'next':
+        elif arg == 'next':
             today += datetime.timedelta(7)
         else:
             context.bot.send_message(chat_id=update.effective_chat.id, text='Invalid option, please specify prev, next or no options')
