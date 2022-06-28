@@ -35,8 +35,9 @@ def chores_message(date):
         ) % (chores[0], chores[1], chores[2], chores[3], chores[4])).replace('DONE', 'DONE ✅')
 
 def chores_help(update,context):
-    help_message = '/help - help\n/chores <OPTIONAL: prev/next> - list of chores for current week, specify prev or next for other weeks\n/chores_done <trash/upstairs_toilet/downstairs_toilet/common_toilet/common_floor> - set specified chore for current week as done'
+    help_message = '/chores_help - help\n/chores <OPTIONAL: prev/next> - list of chores for current week, specify prev or next for other weeks\n/chores_done <trash/upstairs_toilet/downstairs_toilet/common_toilet/common_floor> - set specified chore for current week as done'
     context.bot.send_message(chat_id=update.effective_chat.id, text=help_message)
+    context.bot.send_photo(chat_id=update.effective_chat.id, photo='https://i.imgur.com/9wFODOK.jpg')
 
 
 # chores handler
