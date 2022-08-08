@@ -1,5 +1,4 @@
 import datetime
-from distutils.log import error
 from telegram.ext import Updater, CommandHandler
 from sheets import *
 import pytz
@@ -14,7 +13,7 @@ chores_map = {
     'common_floor': 5
 }
 
-updater = Updater(token='5138358228:AAF50OgNglW72Y69TFmeRTHGqQ9n1HVdsVo',
+updater = Updater(token=sample_config.telegramAPIKey,
     use_context=True) # receives updates from Telegram
 dispatcher = updater.dispatcher # dispatches updates to appropriate handler
 
@@ -27,7 +26,7 @@ def chores_message(date):
         return 'Chores not found.'
     else:
         return ((
-            '🗑️ Trash: %s\n' 
+            '🗑️ Trash: %s\n'
             '🚽 Upstairs toilet: %s\n'
             '🚽 Downstairs toilet: %s\n'
             '🚽 Common toilet: %s\n'

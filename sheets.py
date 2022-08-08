@@ -1,13 +1,12 @@
 import httplib2
 from apiclient import discovery
 import pytz
-from pytz import timezone
 import datetime
 import pygsheets
 tz = pytz.utc
 
-sheets_api_key = 'AIzaSyBeh_CnQNh8-_041kUcKUbPBTgBSgMcYVs' # hide as secret'
-spreadsheet_id = '1tiYLMKpJFCfbTie_yqzmJYoE9IWWd4545BW9Wviyt_U' # hide as secret
+sheets_api_key = sample_config.googleSheetsAPIKey# hide as secret'
+spreadsheet_id = sample_config.googleSheetsSpreadsheetID # hide as secret
 discovery_url = ('https://sheets.googleapis.com/$discovery/rest?version=v4')
 service = discovery.build(
         'sheets',
@@ -53,7 +52,7 @@ def updateDoneChore(date, choreIndex):
 
 def getWeekChores(date):
     # convert date to nearest-previous monday
-    
+
     print('Looking for: {}'.format(dateToQuery(date)))
     return getChores(dateToQuery(date))
 
